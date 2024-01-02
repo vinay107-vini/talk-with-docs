@@ -1,0 +1,12 @@
+version: "2"
+services:
+  explore_docs_chatbot:
+    build: .
+    command: uvicorn main:app --reload --host 0.0.0.0 --port 8081
+    #command: uvicorn main:app --reload
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ./:/explore_docs/
+    stdin_open: true 
+    tty: true
